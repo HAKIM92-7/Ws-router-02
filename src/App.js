@@ -1,23 +1,42 @@
-import logo from './logo.svg';
 import './App.css';
-
+import {Route , Switch} from 'react-router-dom'
+import Home from './components/Home'
+import Contact from './components/Contact'
+import Help from './components/Help'
+import Navbar from './components/Navbar'
+import Admin from './components/Admin'
+import Login from './components/Login'
+import { useState } from 'react';
 function App() {
+
+  const [isConnected , setIsConnected] = useState(false)
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+  
+  
+  <Navbar  isConnected={isConnected} setIsConnected={setIsConnected} />
+  
+  
+  <Switch>
+
+
+  <Route exact  path="/"  component={Home} />
+
+  <Route path="/contact" render={(props)=> <Contact text="i ' am a contact page"  {...props} />}/>
+
+  <Route path="/help/:info"  component={Help} />
+
+  <Route path="/admin" render={(props) => <Admin isConnected={isConnected}/>} />
+
+  <Route path="/login"  component={Login} />
+  </Switch>
+
+
+
+
+
+
+
     </div>
   );
 }
