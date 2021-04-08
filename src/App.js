@@ -7,6 +7,9 @@ import Navbar from './components/Navbar'
 import Admin from './components/Admin'
 import Login from './components/Login'
 import { useState } from 'react';
+import Weather from './components/Weather';
+import Users from './components/Users';
+import Profil from './components/Profil';
 function App() {
 
   const [isConnected , setIsConnected] = useState(false)
@@ -29,6 +32,12 @@ function App() {
   <Route path="/admin" render={(props) => <Admin isConnected={isConnected}/>} />
 
   <Route path="/login"  component={Login} />
+
+  <Route path="/weather/:city"  component={Weather} />
+
+  <Route path="/users"  component={Users} />
+
+  <Route path="/profile/:id"  component={Profil} />
   </Switch>
 
 

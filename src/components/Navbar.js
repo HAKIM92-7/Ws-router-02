@@ -21,7 +21,8 @@ const Navbar = ({isConnected , setIsConnected}) => {
         <Link class="nav-link" to="/contact">Contact</Link>
         <Link class="nav-link" to="/help/hakim">Help</Link>
         <Link class="nav-link " to="/admin">Admin</Link>
-
+        <Link class="nav-link " to="/weather/Tunis">Weather</Link>
+        <Link class="nav-link " to="/users">Users</Link>
         <button onClick={()=> {
             
         setIsConnected(!isConnected);
